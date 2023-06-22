@@ -10,14 +10,7 @@ const items = [
   { _id: 3, name: "Container 3" },
 ];
 
-export default function List({ navigation }) {
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitleContainerStyle: { left: 0, right: 0 },
-      headerTitle: () => <Header />,
-    });
-  }, [navigation]);
-
+export default function List() {
   const styles = StyleSheet.create({
     container: {
       margin: 10,

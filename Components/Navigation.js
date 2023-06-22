@@ -23,17 +23,20 @@ const styles = StyleSheet.create({
 });
 
 export default function Navigation() {
-  
-
   return (
     <View style={styles.container}>
       {/* <Header /> */}
       <NavigationContainer style={styles.bottomComponent}>
         {/* initalRouteName="여기에 첫번째로 로딩될 화면 입력" */}
-        <Tab.Navigator initialRouteName="Home">
+        <Tab.Navigator
+          initialRouteName="Home"
+          screenOptions={({ route }) => ({
+            header: (props) => <Header title={route.name} {...props} />,
+          })}
+        >
           <Tab.Screen
             name="운송 오더"
-            component={(props) => <Home title="운송 오더" />}
+            component={Home}
             options={{
               title: "운송 오더",
               tabBarIcon: ({ color, size }) => (
@@ -43,7 +46,7 @@ export default function Navigation() {
           />
           <Tab.Screen
             name="차량 관리"
-            component={(props) => <List title="차량 관리" />}
+            component={List}
             options={{
               title: "차량 관리",
               tabBarIcon: ({ color, size }) => (
@@ -53,7 +56,7 @@ export default function Navigation() {
           />
 
           <Tab.Screen
-            name="transport history"
+            name="운송 이력"
             component={TransportHistory}
             options={{
               title: "운송이력",

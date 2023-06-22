@@ -8,17 +8,18 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-export default function Header(props) {
-  const { title } = props;
+//style
+import { headerColor } from "./style.js";
+
+export default function Header({ title }) {
+  //const { title } = props;
 
   const style = StyleSheet.create({
     container: {
-      flex: 1,
       flexDirection: "row",
-      backgroundColor: "#105C8E",
-      marginLeft: "-1.7%",
-
+      backgroundColor: headerColor,
       width: Dimensions.get("window").width,
+      padding: 15,
     },
     menuIcon: {
       color: "white",
